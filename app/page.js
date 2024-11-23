@@ -8,7 +8,7 @@ import Image from "next/image";
 
 export default function Page() {
   return (
-    <div>
+    <>
       <div className="header">
         <div></div>
         <h1 className="header-text header-title">PAPER REX</h1>
@@ -20,6 +20,7 @@ export default function Page() {
       </div>
       <div className="button-section">
         {/* 4 Buttons */}
+        <BigButton className="button-padding-16" />
         <BigButton className="button-padding-16" />
         <BigButton className="button-padding-16" />
         <BigButton className="button-padding-16" />
@@ -39,6 +40,6 @@ export default function Page() {
         <h1 className="heading-text pb-2">Player of the match voting</h1>
         <PlayerCard />
       </div>
-    </div>
+    </>
   );
 }
