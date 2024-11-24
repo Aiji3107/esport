@@ -1,30 +1,44 @@
 import Image from "next/image";
+import PhotoOne from "@/public/image/2022-masters-grand-finals-crowd.jpg";
 
-export default function MatchTodayCard() {
+export default function MatchTodayCard({ MTImg, title, body }) {
+  const style = {
+    bgcolor: "#000066",
+    headercolor: "#FF0066",
+    yellowcolor: "#E4FF00",
+    linecolor: "#0000A6",
+  };
+
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        padding: "20px",
-        backgroundColor: "#000066",
-        borderRadius: "6px",
-        height: "203px",
-        width: "240px",
-        marginRight: "20px", // Memberikan jarak antar kartu
-      }}
+      className="rounded-xl p-0 mb-5 shadow-lg"
+      style={{ backgroundColor: style.bgcolor }}
     >
-      <Image
-        alt="image"
-        src="/path/to/your/image.jpg"
-        width={100}
-        height={100}
-      />
-      <div className="match-today-card__info">
-        <h2 className="match-today-card__title">Match Today</h2>
-        <p className="match-today-card__description">
-          This is a match today card
+      {/* Card Header with Image (frameless) */}
+      <div className="relative w-full h-36 overflow-hidden rounded-t-xl">
+        <Image
+          src={MTImg}
+          alt="Match Photo"
+          className="object-cover w-full h-full"
+          style={{
+            borderTopLeftRadius: "1rem", // Apply rounded-xl only to top-left
+            borderTopRightRadius: "1rem", // Apply rounded-xl only to top-right
+            borderBottomLeftRadius: "0", // No rounded corners at the bottom
+            borderBottomRightRadius: "0", // No rounded corners at the bottom
+          }}
+        />
+      </div>
+
+      {/* Match Highlights Section */}
+      <div className="flex flex-col items-start rounded-xl p-2">
+        <p
+          className="text-lg  font-bold mb-1"
+          style={{ color: style.headercolor }}
+        >
+          {title}
+        </p>
+        <p className="text-sm " style={{ color: style.yellowcolor }}>
+          {body}
         </p>
       </div>
     </div>
