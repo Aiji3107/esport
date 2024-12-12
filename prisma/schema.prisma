@@ -1,0 +1,148 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime
+  User              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([provider, providerAccountId])
+}
+
+model Article {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  thumbnail String
+}
+
+model Authenticator {
+  credentialID         String  @unique
+  userId               String
+  providerAccountId    String
+  credentialPublicKey  String
+  counter              Int
+  credentialDeviceType String
+  credentialBackedUp   Boolean
+  transports           String?
+  User                 User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([userId, credentialID])
+}
+
+model Country {
+  id     Int      @id @default(autoincrement())
+  code   String
+  name   String
+  Player Player[]
+  Team   Team[]
+}
+
+model League {
+  id      Int      @id @default(autoincrement())
+  title   String
+  content String
+  date    DateTime @default(now())
+  Team    Team[]
+}
+
+model Player {
+  id                Int          @id @default(autoincrement())
+  teamId            Int?
+  address           String
+  bio               String?
+  createdAt         DateTime     @default(now())
+  dateOfBirth       DateTime
+  email             String       @unique
+  firstName         String       @default("")
+  lastLogin         DateTime?
+  lastName          String       @default("")
+  phoneNumber       String       @unique
+  playerPosition    String
+  profilePictureUrl String?
+  socialMediaLinks  String?
+  updatedAt         DateTime
+  nationalityId     Int
+  gender            Gender       @default(Other)
+  status            PlayerStatus @default(Active)
+  Country           Country      @relation(fields: [nationalityId], references: [id])
+  Team              Team?        @relation(fields: [teamId], references: [id])
+}
+
+model Session {
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime
+  User         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Team {
+  id            Int      @id @default(autoincrement())
+  name          String
+  leagueId      Int?
+  city          String
+  coachName     String
+  createdAt     DateTime @default(now())
+  foundedYear   DateTime
+  stadium       String
+  updatedAt     DateTime
+  nationalityId Int
+  Player        Player[]
+  League        League?  @relation(fields: [leagueId], references: [id])
+  Country       Country  @relation(fields: [nationalityId], references: [id])
+}
+
+model User {
+  id            String          @id
+  name          String?
+  email         String          @unique
+  createdAt     DateTime        @default(now())
+  emailVerified DateTime?
+  image         String?
+  updatedAt     DateTime
+  username      String?         @unique
+  Account       Account[]
+  Authenticator Authenticator[]
+  Session       Session[]
+}
+
+model VerificationToken {
+  identifier String
+  token      String
+  expires    DateTime
+
+  @@id([identifier, token])
+}
+
+enum Gender {
+  Male
+  Female
+  Other
+}
+
+enum PlayerStatus {
+  Active
+  Inactive
+  Suspended
+}

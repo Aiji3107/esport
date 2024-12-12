@@ -109,11 +109,7 @@ export default function Page() {
 
   return (
     <>
-      <div className="header">
-        <div></div>
-        <h1 className="header-text header-title">PAPER REX</h1>
-        <Image src={SettingsIcon} alt="settingsIcon" />
-      </div>
+      <HeaderTitle title="HOME" />
       <div>
         {/* Carousel */}
         <Carousel />
