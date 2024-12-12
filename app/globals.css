@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0a0a0a; /* Warna gelap */
+  --foreground: #ededed; /* Teks terang */
+  --accent: #ffff00; /* Ancient Yellow tetap */
+  --secondary: #ff0066; /* Primary Pink tetap */
+  --secondaryBlueDark: #1e003f; /* Secondadry Blue Dark */
+  --secondaryBlue: #0000a6; /* SecondaryBlue */
+  --secondaryRed: #ff0000; /* SecondaryRed */
+  --accentPurple: #b52cde; /* AncentPurple */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0000A6; /* Primary Blue */
+    --foreground: #ededed; /* Teks terang */
+    --accent: #ffff00; /* Ancient Yellow tetap */
+    --secondary: #ff0066; /* Primary Pink tetap */
+    --secondaryBlueDark: #1e003f; /* Secondadry Blue Dark */
+    --primaryBlue: #000066; /* SecondaryBlue */
+    --secondaryRed: #ff0000; /* SecondaryRed */
+    --accentPurple: #b52cde; /* AncentPurple */
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center; /* Pusatkan secara horizontal */
+  align-items: flex-start; /* Paling atas secara vertikal */
+  min-height: 100vh; /* Pastikan tingginya mencakup seluruh layar */
+  margin: 16px 0px; /* Hilangkan margin body */
+  box-sizing: border-box; /* Pastikan padding tidak memengaruhi ukuran elemen */
+  padding: 0 16px; /* Gantikan margin dengan padding */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Menyelaraskan elemen secara vertikal */
+}
+
+.header-title {
+  flex-grow: 1; /* Memungkinkan elemen mengambil ruang yang tersedia */
+  text-align: center; /* Menempatkan teks di tengah */
+  margin: 0px 50px;
+  padding: 14px;
+}
+
+.menu-item {
+  background-color: var(--secondary);
+  color: var(--foreground);
+}
+
+.card {
+  background-color: var(--background);
+  border: 2px solid var(--accent);
+}
+
+.button {
+  background-color: var(--secondary);
+  color: var(--foreground);
+  border-radius: 8px;
+  padding: 10px 20px;
+}
+
+.header-text {
+  color: var(--accent);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.button-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 0px;
+}
+
+.button-padding-16 {
+  padding: 16px;
+}
+
+.heading-text {
+  color: var(--accent);
+  font-size: 18px;
+  font-weight: bold;
+}
