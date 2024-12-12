@@ -2,6 +2,7 @@
 import localFont from "next/font/local";
 import Navbar from "@/components/Navbar";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,9 +29,9 @@ export default function RootLayout({ children }) {
         <div>
           {/* Navbar global hanya untuk user/guest */}
           <nav className="text-red-700">
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/login">Login</a>
+            <Link href="/">Home</Link>
+            <Link href="/about">About</Link>
+            <Link href="/login">Login</Link>
           </nav>
           {children}
         </div>

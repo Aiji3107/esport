@@ -3,6 +3,7 @@ import PartnersIcon from "@/components/icon/partners.svg";
 import ShopIcon from "@/components/icon/shop.svg";
 import ContactIcon from "@/components/icon/contact.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
    const currentPage = "home";
@@ -12,7 +13,7 @@ const Navbar = () => {
       {/* Menu */}
       <ul className="flex gap-8">
         <li>
-          <a
+          <Link
             href="/"
             className={`flex flex-col items-center ${
               currentPage === "home" ? "text-blue-500" : "text-gray-500"
@@ -24,15 +25,15 @@ const Navbar = () => {
                 currentPage === "home" ? "bg-blue-500" : "bg-transparent"
               }`}
             ></span>
-          </a>
+          </Link>
         </li>
         <li>
-          <a
+          <Link
             href="/vote"
             className="hover:text-yellow-400 transition-colors duration-300"
           >
             <Image src={PartnersIcon} alt="partners Icon" className="w-6 h-6" />
-          </a>
+          </Link>
           <span
             className={`block h-1 w-8 mt-1 ${
               currentPage === "partners" ? "bg-blue-500" : "bg-transparent"
@@ -40,20 +41,20 @@ const Navbar = () => {
           ></span>
         </li>
         <li>
-          <a
+          <Link
             href="/shop"
             className="hover:text-yellow-400 transition-colors duration-300"
           >
             <Image src={ShopIcon} alt="Shop Icon" className="w-6 h-6" />
-          </a>
+          </Link>
         </li>
         <li>
-          <a
+          <Link
             href="/about"
             className="hover:text-yellow-400 transition-colors duration-300"
           >
             <Image src={ContactIcon} alt="Contact Icon" className="w-6 h-6" />
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

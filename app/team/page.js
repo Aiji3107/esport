@@ -10,7 +10,7 @@ export default function TeamPage() {
       <div className="py-2">
         <h3 className="text-center text-[10px] pr-[16px]">
           The Paper Rex VALORANT Team features some of the most celebrated
-          players since the VCT's inception. Despite the emergence of younger
+          players since the VCT inception. Despite the emergence of younger
           raw talents, our roster remains competitive while being one of the
           longest-standing rosters in VCT. In 2024, the team triumphed as
           Champions of VCT Pacific Stage 1 and secured a spot on the podium at
@@ -32,7 +32,7 @@ export default function TeamPage() {
 
               {/* Name */}
             </div>
-            <h3 className="mt-2 text-xs">Khalish 'd4v41' Rusyaide</h3>
+            <h3 className="mt-2 text-xs">Khalish d4v41 Rusyaide</h3>
             {/* Social Media */}
             <div className="flex items-center gap-[5px]">
               <Instagram sx={{ fontSize: "14px" }} />
@@ -48,7 +48,7 @@ export default function TeamPage() {
 
               {/* Name */}
             </div>
-            <h3 className="mt-2 text-xs">Khalish 'd4v41' Rusyaide</h3>
+            <h3 className="mt-2 text-xs">Khalish d4v41 Rusyaide</h3>
             {/* Social Media */}
             <div className="flex items-center gap-[5px]">
               <Instagram sx={{ fontSize: "14px" }} />
@@ -64,7 +64,7 @@ export default function TeamPage() {
 
               {/* Name */}
             </div>
-            <h3 className="mt-2 text-xs">Khalish 'd4v41' Rusyaide</h3>
+            <h3 className="mt-2 text-xs">Khalish d4v41 Rusyaide</h3>
             {/* Social Media */}
             <div className="flex items-center gap-[5px]">
               <Instagram sx={{ fontSize: "14px" }} />
@@ -80,7 +80,7 @@ export default function TeamPage() {
 
               {/* Name */}
             </div>
-            <h3 className="mt-2 text-xs">Khalish 'd4v41' Rusyaide</h3>
+            <h3 className="mt-2 text-xs">Khalish d4v41 Rusyaide</h3>
             {/* Social Media */}
             <div className="flex items-center gap-[5px]">
               <Instagram sx={{ fontSize: "14px" }} />

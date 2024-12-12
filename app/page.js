@@ -10,6 +10,9 @@ import VoteIcon from "@/components/icon/vote.png";
 import TeamIcon from "@/components/icon/team.svg";
 import AboutIcon from "@/components/icon/info.svg";
 import Image from "next/image";
+import HeaderTitle from "@/components/HeaderTitle";
+
+
 
 export default function Page() {
   const currentPage = "home";
