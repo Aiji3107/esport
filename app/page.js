@@ -6,7 +6,6 @@ import PlayerCard from "@/components/playerCard";
 import UpcomingMatchCard from "@/components/upcomingCard";
 // ICON IMPORT
 import NewsIcon from "@/components/icon/news.svg";
-import VoteIcon from "@/components/icon/vote.png";
 import TeamIcon from "@/components/icon/team.svg";
 import AboutIcon from "@/components/icon/info.svg";
 import Image from "next/image";
@@ -27,7 +26,6 @@ export default function Page() {
     {
       id: 2,
       text: "VOTE",
-      icon: VoteIcon,
       href: "/vote",
     },
     {
