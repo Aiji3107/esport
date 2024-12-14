@@ -10,8 +10,8 @@ import TeamIcon from "@/components/icon/team.svg";
 import AboutIcon from "@/components/icon/info.svg";
 import Image from "next/image";
 import HeaderTitle from "@/components/HeaderTitle";
-
-
+import { Group, HowToVote, Info, Newspaper } from "@mui/icons-material";
+import Link from "next/link";
 
 export default function Page() {
   const currentPage = "home";
@@ -117,6 +117,24 @@ export default function Page() {
       </div>
       <div className="button-section">
         {/* Map data untuk menghasilkan BigButton */}
+        <Link
+          href="/news"
+          className="flex flex-col items-center justify-center w-[80px] h-[80px] bg-secondaryBlueDark rounded-md"
+        >
+          <Newspaper className="w-[45px] h-[45px] text-accent" />
+          <h1 className="text-sm mt-1 text-accent">NEWS</h1>
+        </Link>
+
+        <Link href="/vote">
+          <HowToVote />
+        </Link>
+        <Link href="/team">
+          <Group />
+        </Link>
+        <Link href="/about">
+          <Info />
+        </Link>
+
         {ButtonData.map((button) => (
           <BigButton
             key={button.id}
@@ -148,10 +166,10 @@ export default function Page() {
         {/* Match Today */}
         {MTData.map((data) => (
           <MatchTodayCard
-          key={data.id}
-          title={data.title}
-          MTImg={data.MTImg}
-          body={data.body} 
+            key={data.id}
+            title={data.title}
+            MTImg={data.MTImg}
+            body={data.body}
           />
         ))}
         <h1 className="heading-text pb-2">match Today</h1>
