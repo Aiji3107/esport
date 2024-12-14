@@ -12,6 +12,7 @@ module.exports = {
         foreground: "var(--foreground)",
         accent: "var(--accent)",
         secondary: "var(--secondary)",
+        secondaryBlue: "var(--secondaryBlue)",
         secondaryBlueDark: "var(--secondaryBlueDark)",
       },
     },
