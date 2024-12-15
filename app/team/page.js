@@ -14,14 +14,18 @@ const PlayersComponent = () => {
       try {
         const response = await fetch("/api/player");
         const data = await response.json();
+        console.log(data); // Debugging: Periksa data dari API
 
         // Periksa apakah data.players ada dan adalah array
         if (Array.isArray(data.players)) {
           setPlayers(data.players);
+        } else if (Array.isArray(data)) {
+          setPlayers(data); // Jika API langsung mengembalikan array pemain
         } else {
           throw new Error("Data pemain tidak valid");
         }
       } catch (error) {
+        console.error("Error fetching players:", error);
         setError(error);
       } finally {
         setLoading(false);
