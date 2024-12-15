@@ -1,19 +1,31 @@
 // app/api/player/route.js
-import prisma from "@/lib/prisma";
 
-export async function GET(req) {
+import { prisma } from "@/lib/prisma";
+
+export async function GET() {
   try {
+    // Mengambil data pemain dari database
     const players = await prisma.player.findMany();
-    console.log(players); // Debugging: Cek data dari database
-    return new Response(JSON.stringify({ players }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
+
+    // Jika data pemain kosong atau null
+    if (!players || players.length === 0) {
+      throw new Error("No players found");
+    }
+
+    // Jika data ditemukan, kirimkan response dengan data pemain
+    return new Response(JSON.stringify(players), { status: 200 });
   } catch (error) {
-    console.error("Error fetching players:", error); // Debugging: Log error
-    return new Response(JSON.stringify({ error: "Error fetching players" }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    // Menangani error dan mengirimkan response dengan status 500
+    console.error("Error fetching players:", error);
+    return new Response(
+      JSON.stringify({
+        error: "Error fetching players",
+        details: error.message,
+      }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   }
 }
