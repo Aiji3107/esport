@@ -73,16 +73,6 @@ export default function Page() {
       homeImg: "",
       awayImg: "",
     },
-    {
-      id: 3,
-      name: "match 3",
-      teamAway: "Team E",
-      teamHome: "Team F",
-      liga: "Serie A",
-      ligaImg: "",
-      homeImg: "",
-      awayImg: "",
-    },
   ];
 
   const MTData = [
@@ -97,24 +87,6 @@ export default function Page() {
       MTImg: "",
       title: "Player Interview",
       body: "Exclusive player talk",
-    },
-    {
-      id: 3,
-      MTImg: "",
-      title: "Tactical Analysis",
-      body: "Deep dive into strategies",
-    },
-    {
-      id: 4,
-      MTImg: "",
-      title: "Post-Match Reactions",
-      body: "Hear from the experts",
-    },
-    {
-      id: 5,
-      MTImg: "",
-      title: "Upcoming Matches",
-      body: "Stay updated on schedules",
     },
   ];
 

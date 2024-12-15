@@ -27,13 +27,8 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div>
-          {/* Navbar global hanya untuk user/guest */}
-          <nav className="text-red-700">
-            <Link href="/">Home</Link>
-            <Link href="/about">About</Link>
-            <Link href="/login">Login</Link>
-          </nav>
           {children}
+          <Navbar />
         </div>
       </body>
     </html>
