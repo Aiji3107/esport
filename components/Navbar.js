@@ -29,7 +29,7 @@ const Navbar = () => {
         </li>
         <li>
           <Link
-            href="/vote"
+            href="/partners"
             className="hover:text-yellow-400 transition-colors duration-300"
           >
             <Image src={PartnersIcon} alt="partners Icon" className="w-6 h-6" />
