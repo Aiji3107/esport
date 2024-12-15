@@ -1,7 +1,18 @@
-import Image from "next/image";
-
+import { Group, HowToVote, Info, Newspaper } from "@mui/icons-material";
 export default function BigButton({ text, icon, href }) {
- 
+  const iconMap = {
+    Newspaper: Newspaper,
+    HowToVote: HowToVote,
+    Group: Group,
+    Info: Info,
+  };
+  const Icon = iconMap[icon]; // Ambil ikon berdasarkan nama string
+
+  if (!Icon) {
+    // Tangani jika ikon tidak ditemukan
+    return <div>Icon not found</div>;
+  }
+
   return (
     <a href={href} className="block" style={{ textDecoration: "none" }}>
       <div
@@ -10,18 +21,18 @@ export default function BigButton({ text, icon, href }) {
           height: "80px",
           color: "black",
           display: "flex",
-          flexDirection: "column", // Mengatur konten di dalam button secara vertikal
+          flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
           borderRadius: "8px",
           cursor: "pointer",
-          backgroundColor: "#000066", // Warna latar belakang button
+          backgroundColor: "#000066",
           textAlign: "center",
         }}
         className="shadow-lg"
       >
-        {/* Ikon di atas */}
-        <Image src={icon} alt="icon" width={34} height={34} />
+        {/* Render Icon */}
+        <Icon className="w-[45px] h-[45px] text-accent" />
 
         {/* Teks di bawah */}
         <span style={{ fontSize: "14px", color: "#E4FF00" }}>{text}</span>

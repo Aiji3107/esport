@@ -16,31 +16,41 @@ import Link from "next/link";
 export default function Page() {
   const currentPage = "home";
 
+  const iconMap = {
+    Newspaper: Newspaper,
+    HowToVote: HowToVote,
+    Group: Group,
+    Info: Info,
+  };
+
+
   const ButtonData = [
     {
       id: 1,
       text: "NEWS",
-      icon: NewsIcon,
+      icon: "Newspaper", // Pastikan ini sesuai dengan nama di iconMap
       href: "/news",
     },
     {
       id: 2,
       text: "VOTE",
+      icon: "HowToVote", // Sesuaikan dengan objek iconMap
       href: "/vote",
     },
     {
       id: 3,
       text: "TEAM",
-      icon: TeamIcon,
+      icon: "Group",
       href: "/team",
     },
     {
       id: 4,
       text: "ABOUT",
-      icon: AboutIcon,
+      icon: "Info",
       href: "/about",
     },
   ];
+
 
   const UpcomingData = [
     {
@@ -116,31 +126,14 @@ export default function Page() {
         <Carousel />
       </div>
       <div className="button-section">
-        {/* Map data untuk menghasilkan BigButton */}
-        <Link
-          href="/news"
-          className="flex flex-col items-center justify-center w-[80px] h-[80px] bg-secondaryBlueDark rounded-md"
-        >
-          <Newspaper className="w-[45px] h-[45px] text-accent" />
-          <h1 className="text-sm mt-1 text-accent">NEWS</h1>
-        </Link>
-
-        <Link href="/vote">
-          <HowToVote />
-        </Link>
-        <Link href="/team">
-          <Group />
-        </Link>
-        <Link href="/about">
-          <Info />
-        </Link>
+        
 
         {ButtonData.map((button) => (
           <BigButton
             key={button.id}
             text={button.text}
-            icon={button.icon}
-            href={button.href} // Pass href ke BigButton
+            icon={button.icon} // Menyertakan icon di sini
+            href={button.href}
             className="button-padding-16"
           />
         ))}
