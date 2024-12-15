@@ -1,14 +1,21 @@
-const express = require("express");
-const { PrismaClient } = require("@prisma/client");
+// app/api/player/route.js
+import prisma from "@/lib/prisma";
 
-const router = express.Router();
-const prisma = new PrismaClient();
-
-router.get("/", async (req, res) => {
+export async function GET(req) {
   try {
+    // Mengambil data pemain dari database menggunakan Prisma
     const players = await prisma.player.findMany();
-    res.json({ players });
+
+    // Mengembalikan data pemain dalam format JSON
+    return new Response(JSON.stringify(players), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
   } catch (error) {
-    res.status(500).json({ error: "Failed to fetch players" });
+    // Jika ada error, kirimkan respons dengan status error dan pesan
+    return new Response(JSON.stringify({ error: "Error fetching players" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
   }
-});
+}
