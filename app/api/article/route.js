@@ -1,19 +1,20 @@
-// app/api/player/route.js
+// app/api/article/route.js
 
 import { prisma } from "@/lib/prisma";
 
 export async function GET() {
   try {
-    // mengambil data artikel dari database
-    const article = await prisma.article.findMany()
+    // Mengambil data pemain dari database
+    const players = await prisma.player.findMany();
 
-    // jika data artikel kosong atau null
-    if (!article || article.length === 0 ) {
-      throw new Error("No articles found");
+    // Jika data pemain kosong atau null
+    if (!players || players.length === 0) {
+      throw new Error("No players found");
     }
-    // Jika data di temukan
-    return new Response(JSON.stringify(article), { status: 200 });
-  } catch (err) {
+
+    // Jika data ditemukan, kirimkan response dengan data pemain
+    return new Response(JSON.stringify(players), { status: 200 });
+  } catch (error) {
     // Menangani error dan mengirimkan response dengan status 500
     console.error("Error fetching players:", error);
     return new Response(
@@ -26,4 +27,5 @@ export async function GET() {
         headers: { "Content-Type": "application/json" },
       }
     );
-  }};
+  }
+}
